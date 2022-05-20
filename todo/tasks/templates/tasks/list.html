@@ -4,12 +4,14 @@
 
 {% block content %}
 <div class="offset-1 col-10 list-div">
+
   <h1>Lista de Tarefas</h1>
   <a id="add-link" href="newtask/">
     <div class="col-2 add-div">
       <i class="fas fa-plus"></i> Adicionar tarefa
     </div>
   </a>
+
   <div class="col-9 search-div">
     <form method="GET" id="search-form">
       <input class="form-control" type="text" id="search" name="search"
@@ -17,6 +19,7 @@
       <i class="fas fa-search" id="search-btn"></i>
     </form>
   </div>
+
   {% if messages %}
   <ul class="messages">
     {% for message in messages %}
@@ -24,6 +27,7 @@
     {% endfor %}
   </ul>
   {% endif %}
+
   <ul class="task-list">
     {% for task in tasks %}
     <li class="task-item">
@@ -33,6 +37,7 @@
     </li>
     {% endfor %}
   </ul>
+
   <div class="pagination">
     <span class="step-links">
       {% if tasks.has_previous %}
@@ -48,5 +53,6 @@
       {% endif %}
     </span>
   </div>
+  
 </div>
 {% endblock %}

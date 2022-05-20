@@ -61,15 +61,3 @@ def deleteTask(request, id):
     task.delete()
     messages.info(request, 'Tarefa excluída com sucesso!')
     return redirect('/')
-
-
-def helloworld(resquest):
-    return HttpResponse('Hello World!')
-
-
-def yourName(request, name):
-    return render(request, 'tasks/yourname.html', {'name': name})
-
-
-def page(request):
-    return render(request, 'tasks/page.html')
