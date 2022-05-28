@@ -63,3 +63,17 @@ def deleteTask(request, id):
     task.delete()
     messages.info(request, 'Tarefa excluída com sucesso!')
     return redirect('/')
+
+@login_required
+def changeStatus(request, id):
+    task = get_object_or_404(Task, pk=id)
+
+    if(task.done == 'doing'):
+        task.done = 'done'
+    else:
+        task.done = 'doing'
+
+    task.save()
+    return redirect('/')
+
+

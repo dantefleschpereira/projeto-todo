@@ -6,7 +6,7 @@
 <div class="offset-1 col-10 list-div">
 
   <h1>Lista de Tarefas</h1>
-  
+
   <a id="add-link" href="newtask/">
     <div class="col-2 add-div">
       <i class="fas fa-plus"></i> Adicionar tarefa
@@ -31,10 +31,15 @@
 
   <ul class="task-list">
     {% for task in tasks %}
+    {% if task.done == 'doing' %}
     <li class="task-item">
+      {% else %}
+    <li class="task-item done">
+      {% endif %}
       <span><a href="/task/{{task.id}}">{{task.title}}</a></span>
       <a href="delete/{{task.id}}" class="delete-btn"><span><i class="fas fa-trash"></i></span></a>
       <a href="edit/{{task.id}}"><span><i class="fas fa-edit"></i></span></a>
+      <a href="changesstatus/{{task.id}}"><span><i class="fas fa-check"></i></span></a>
     </li>
     {% endfor %}
   </ul>
@@ -54,6 +59,6 @@
       {% endif %}
     </span>
   </div>
-  
+
 </div>
 {% endblock %}
